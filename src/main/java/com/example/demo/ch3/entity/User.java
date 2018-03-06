@@ -3,6 +3,7 @@ package com.example.demo.ch3.entity;
 public class User {
 	private String name;
 	private String sex;
+	private String age;
 	public String getName() {
 		return name;
 	}
@@ -15,9 +16,15 @@ public class User {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
+	public String getAge() {
+		return age;
+	}
+	public void setAge(String age) {
+		this.age = age;
+	}
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", sex=" + sex + "]";
+		return "User [name=" + name + ", sex=" + sex + ", age=" + age + "]";
 	}
 	
 }
