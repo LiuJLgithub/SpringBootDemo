@@ -1,0 +1,9 @@
+<% directive dynamic user1; %>
+<html>
+<p>userInfo1.btl的信息</p>
+<body>
+年龄：${user1.age}
+<p/>
+姓名：${user1.name}
+</body>
+</html>

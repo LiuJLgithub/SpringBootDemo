@@ -11,13 +11,13 @@ import com.example.demo.ch3.entity.User;
 
 /**
  * Spring 的controller可以接受多种参数：
- * PathVariable,Modle,ModleAndView,JavaBean
+ * PathVariable,@MatrixVariable
  * @author Liu
  *
  */
 @Controller
 @RequestMapping("user/{name}")
-public class MethodParamsDemoController {
+public class PathVariableDemoController {
 	/*
 	 * PathVariable使用demo
 	 */

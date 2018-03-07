@@ -28,9 +28,9 @@ public class AOPConfig {
 //			String methodName = pjp.getSignature().getName();
 //			System.out.println("methodName:"+methodName);
 			// 拦截的方法参数
-			Object[] args = pjp.getArgs();
-			System.out.println("参数长度："+args.length);
-			System.out.println("args:" + Arrays.asList(args));
+//			Object[] args = pjp.getArgs();
+//			System.out.println("参数长度："+args.length);
+//			System.out.println("args:" + Arrays.asList(args));
 			// 调用原来的方法
 			Object o = pjp.proceed();
 			System.out.println("return:" + o);
