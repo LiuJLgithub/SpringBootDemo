@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.demo.ch3.entity.Order;
+import com.example.demo.ch3.entity.OrderDetail;
 import com.example.demo.ch3.entity.OrderPostForm;
 import com.example.demo.ch3.entity.User;
 /**
@@ -49,12 +51,16 @@ public class JaveBeanDemoController {
 		
 	}
 	/*
-	 * HTTP提交的数据有多个name
+	 * HTTP提交的数据有多个name，需要注意：POJO有set方法
+	 * 参考：/admin/userInfo.btl中的form。
 	 */
 	@PostMapping(path="/saveOrder.json")
 	@ResponseBody
 	public String saveOrder(OrderPostForm orderPostForm){
-		
+		System.out.println("订单名称为："+orderPostForm.getOrder().getName());
+		for (OrderDetail detail : orderPostForm.getDetails()) {
+			System.out.println("订单详情:"+detail.getName());
+		}
 		return "saveOrder success!!!";
 	}
 }
