@@ -2,8 +2,8 @@
 <html>
 <p>userInfo1.btl的信息</p>
 <body>
-年龄：${user1.age}
-<p/>
-姓名：${user1.name}
+年龄：${user1.age}<br/>
+姓名：${user1.name}<br/>
+性别：${user1.sex}
 </body>
 </html>
