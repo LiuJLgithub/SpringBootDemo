@@ -101,7 +101,7 @@ public class JaveBeanDemoController {
 	@InitBinder("order")
 	public void initBinderOrder(WebDataBinder binder) {
 		System.out.println("进入initBinderOrder方法");
-		binder.setFieldDefaultPrefix("order.");
+		binder.setFieldDefaultPrefix("order.");//设置字段的前置值
 	}
 
 	@InitBinder("detail")

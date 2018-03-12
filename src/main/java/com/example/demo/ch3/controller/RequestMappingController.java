@@ -1,10 +1,17 @@
 package com.example.demo.ch3.controller;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.ch3.entity.User;
@@ -22,11 +29,12 @@ import com.example.demo.ch3.entity.User;
  * @author Liu
  *
  */
-@RestController
+@Controller
 public class RequestMappingController {
 	/*
 	 * 使用consumes属性demo
 	 */
+	@ResponseBody
 	@GetMapping(value = "/consumes/getUser.json", consumes = "application/json") // 该请求通过网页访问会报错，因为类型不支持，报415错误-媒体类型不支持
 	public User forJson() {
 		return new User();
@@ -35,6 +43,7 @@ public class RequestMappingController {
 	/*
 	 * 使用produces属性demo
 	 */
+	@ResponseBody
 	@GetMapping(value = "/user/{userId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE) // 通过网页访问，网页得到的格式内容为Json
 	public User getUser(@PathVariable Long userId, Model model) {
 		User user = new User();
@@ -42,27 +51,33 @@ public class RequestMappingController {
 		user.setSex("12");
 		return user;
 	}
-	
+
 	/*
 	 * 使用params参数属性demo
 	 */
-	@PostMapping(path="/update.json",params="action=save")//只支持post请求，同时请求参数中action的值为save。
-	public void saveUser(){
+	@PostMapping(path = "/update.json", params = "action=save") // 只支持post请求，同时请求参数中action的值为save。
+	public void saveUser() {
 		System.out.println("call save!");
 	}
-	@PostMapping(path="/update.json",params="action=update")//只支持post请求，同时请求参数中action的值为update。
-	public void updateUser(){
+
+	@PostMapping(path = "/update.json", params = "action=update") // 只支持post请求，同时请求参数中action的值为update。
+	public void updateUser() {
 		System.out.println("call update!");
 	}
-	@GetMapping(path="/update.html",params="action=update")//只支持get请求，同时请求参数中action的值为update。
-	public String updateUser1(){
+
+
+	@ResponseBody
+	@GetMapping(path = "/update.html", params = "action=update") // 只支持get请求，同时请求参数中action的值为update。
+	public String updateUser1() {
 		return "update exec!";
 	}
+
 	/*
 	 * 使用headers参数属性demo
 	 */
-	@GetMapping(path="/update.json",headers="action=update")//只支持get请求，同时在请求头中设置参数action的值为update。
-	public String updateUser2(){
+	@ResponseBody
+	@GetMapping(path = "/update.json", headers = "action=update") // 只支持get请求，同时在请求头中设置参数action的值为update。
+	public String updateUser2() {
 		return "update exec!!";
 	}
 }
