@@ -1,4 +1,4 @@
-package com.example.demo.ch3.controller;
+package com.example.demo.ch3.controller.config;
 /**
  * 演示文件上传，使用MulipartFile来支持文件上传
  * @author Liu
