@@ -4,10 +4,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
-@SpringBootApplication(exclude={DataSourceAutoConfiguration.class})//因为还没有配置数据库
+@SpringBootApplication
+//(exclude={DataSourceAutoConfiguration.class})//因为还没有配置数据库
 public class DemoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
+		
 	}
 }
